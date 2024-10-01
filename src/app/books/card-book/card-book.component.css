@@ -1,0 +1,37 @@
+.card-content {
+    width: 180px;
+    box-shadow: 0px 0px 10px 2px #0000005b;
+    border-radius: 15px;
+    padding-bottom: 10px;
+}
+
+.card-content:hover {
+    transform: scale(0.95);
+    transition: 0.85s;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px #376996;
+}
+
+.card-content:active {
+    transition: 0.5s;
+    background: #000;
+}
+
+.img > img {
+    width: 180px;
+}
+
+.title > p {
+    text-align: center;
+    margin: 0;
+    color: #376996;
+}
+
+.authors > p, ul, .publication > p {
+    margin: 0;
+}
+
+.title, .authors, .publication {
+    padding: 5px;
+}
+
