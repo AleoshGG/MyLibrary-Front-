@@ -1,0 +1,44 @@
+.form-content {
+    width: 45%;
+    box-shadow: 0px 0px 10px 2px #0000005b;
+    border-radius: 15px;
+    padding: 2%;
+}
+
+.info {
+    color: #376996;
+    font-size: 25px;
+}
+
+.info > hr {
+    border: 1px #92B4A7 solid;
+    margin-bottom: 20px;
+}
+
+.info > h2, hr {
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.require {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.label {
+    color: #376996;
+}
+
+.input {
+    border: 1px #92B4A7 solid;
+    background: #FAFAFA;
+    width: 300px;
+    border-radius: 5px;
+    padding: 8px;
+}
