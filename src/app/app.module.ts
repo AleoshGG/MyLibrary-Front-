@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormBooksComponent } from './books/form-books/form-books.component';
+import { CardBookComponent } from './books/card-book/card-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
     FooterComponent,
-    FormBooksComponent
+    FormBooksComponent,
+    CardBookComponent
   ],
   imports: [
     BrowserModule,

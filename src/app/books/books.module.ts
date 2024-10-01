@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBooksComponent } from './form-books/form-books.component';
+import { CardBookComponent } from './card-book/card-book.component';
 
 @NgModule({
   declarations: [
-    FormBooksComponent
+    FormBooksComponent,
+    CardBookComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    FormBooksComponent
+    FormBooksComponent,
+    CardBookComponent
   ]
 })
 
