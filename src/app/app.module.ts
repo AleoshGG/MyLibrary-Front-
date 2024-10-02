@@ -3,29 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormBooksComponent } from './books/form-books/form-books.component';
-import { CardBookComponent } from './books/card-book/card-book.component';
+import { BooksModule } from "./books/books.module";
 import { ButtonsComponent } from './buttons/buttons.component';
-import { FormAuthorComponent } from './authors/form-author/form-author.component';
-import { EditFormComponent } from './edit/edit-form/edit-form.component';
+import { AuthorsModule } from "./authors/authors.module";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RegistrationPageComponent,
     TitleComponent,
     FooterComponent,
-    FormBooksComponent,
-    CardBookComponent,
-    ButtonsComponent,
-    FormAuthorComponent,
-    EditFormComponent
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    BooksModule,
+    AuthorsModule,
+    HttpClientModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })

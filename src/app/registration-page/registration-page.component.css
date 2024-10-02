@@ -1,0 +1,39 @@
+.page-content {
+  padding: 3%;
+}
+
+.info-content {
+  margin-top: 3%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-msg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  height: 40%;
+}
+
+.info-msg > img {
+  height: 30px;
+}
+
+.resourse-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.forms-content {
+    width: 50%;
+}
+
+.cards-content {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}

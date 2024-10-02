@@ -19,8 +19,10 @@
     </div>
     <div class="require">
       <label for="literary_genre" class="label">Género literario:</label>
-      <select name="" id="" class="input">
-        <option value="">Género 1</option>
+      <select name="genre" id="genre" class="input">
+        <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
+          {{ genre.genre_name }}
+        </option>
       </select>
     </div>
     <div class="require">

@@ -29,8 +29,8 @@
     </div>
     <div class="require">
       <label for="nationality" class="label">Nacionalidad:</label>
-      <select name="" id="" class="input">
-        <option value="">Mexicana</option>
+      <select name="nationality" id="nationality" class="input">
+        <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
       </select>
     </div>
     <div class="require">
