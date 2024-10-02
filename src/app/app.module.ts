@@ -9,6 +9,7 @@ import { FormBooksComponent } from './books/form-books/form-books.component';
 import { CardBookComponent } from './books/card-book/card-book.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FormAuthorComponent } from './authors/form-author/form-author.component';
+import { EditFormComponent } from './edit/edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormAuthorComponent } from './authors/form-author/form-author.component
     FormBooksComponent,
     CardBookComponent,
     ButtonsComponent,
-    FormAuthorComponent
+    FormAuthorComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
