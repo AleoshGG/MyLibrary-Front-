@@ -85,30 +85,31 @@ export class FormAuthorComponent implements OnInit {
 
   post(): void {
     try {
-      for (let i = 0; i < this.selectedAuthors.length; i++) {
-        const writings: iWritings = {
-          id_author: this.selectedAuthors[i],
-          id_book: this.id_book,
-        };
+      if (this.selectedAuthors.length > 0) {
+        for (let i = 0; i < this.selectedAuthors.length; i++) {
+          const writings: iWritings = {
+            id_author: this.selectedAuthors[i],
+            id_book: this.id_book,
+          };
 
-        this._POSTwritings.postWritings(writings).subscribe(
-          (response) => {
-            console.log('Escrito guardado con éxito:', response);
-          },
-          (error) => {
-            console.error('Error al guardar el escrito:', error);
-          }
-        );
+          this._POSTwritings.postWritings(writings).subscribe(
+            (response) => {
+              console.log('Escrito guardado con éxito:', response);
+            },
+            (error) => {
+              console.error('Error al guardar el escrito:', error);
+            }
+          );
+        }
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Good',
+          text: 'Datos guardados',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Good',
-        text: 'Datos guardados',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
     } catch (err) {
       Swal.fire({
         icon: 'error',
@@ -119,7 +120,5 @@ export class FormAuthorComponent implements OnInit {
       });
       return console.log(`Error has occurred: ${err}`);
     }
-    
   }
-
 }

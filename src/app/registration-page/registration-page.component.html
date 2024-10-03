@@ -14,7 +14,7 @@
 
   <div class="resourse-content">
     <div class="forms-content">
-      <app-form-books 
+      <app-form-books
         (formDataEmitter)="onFormBooksDataReceived($event)"
       ></app-form-books>
       <br /><br />
@@ -24,8 +24,9 @@
       ></app-form-author>
       <br /><br />
     </div>
+
     <div class="cards-content">
-      <app-card-book></app-card-book>
+      <app-card-book *ngFor="let book of books" [book]="book"></app-card-book>
     </div>
   </div>
 </div>

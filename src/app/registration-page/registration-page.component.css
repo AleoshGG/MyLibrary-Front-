@@ -32,8 +32,11 @@
 }
 
 .cards-content {
-    width: 50%;
+    width: 55%;
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 20px;
+    height: 1000px;
+    overflow-y: scroll;
+    padding: 5px;
 }

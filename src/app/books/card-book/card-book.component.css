@@ -3,6 +3,7 @@
     box-shadow: 0px 0px 10px 2px #0000005b;
     border-radius: 15px;
     padding-bottom: 10px;
+    height: 380px;
 }
 
 .card-content:hover {
@@ -25,6 +26,14 @@
     text-align: center;
     margin: 0;
     color: #376996;
+}
+
+.title {
+    height: 30px;
+}
+
+.authors {
+    height: 110px;
 }
 
 .authors > p, ul, .publication > p {

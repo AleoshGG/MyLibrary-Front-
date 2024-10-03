@@ -4,20 +4,18 @@
     </div>
 
     <div class="title">
-        <p>Don Quijote de la Mancha</p>
+        <p>{{book.title}}</p>
     </div>
 
     <div class="authors">
         <p>Autores:</p>
         <ul>
-            <li>Miguel de Cervantes</li>
-            <li></li>
-            <li></li>
+            <li *ngFor="let author of book.author">{{author.first_name}} {{author.last_name}}</li>
         </ul>
     </div>
 
     <div class="publication">
         <p>Publicado:</p>
-        <p>Comienzos de 1605</p>
+        <p>{{convertDate(book.date_publication)}}</p>
     </div>
 </div>
