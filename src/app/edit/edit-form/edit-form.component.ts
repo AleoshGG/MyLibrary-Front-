@@ -6,6 +6,10 @@ import { NationalitiesService } from '../service/nationalities.service';
 import { LiteraryGenresService } from '../service/literary-genres.service';
 import { iNationality } from '../../authors/models/iNationality';
 import { iLiteraryGenre } from '../../books/models/iLiteraryGenre';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { iBook } from '../models/iBook';
+import { iAuthor } from '../models/iAuthor';
 
 @Component({
   selector: 'app-edit-form',
@@ -42,22 +46,38 @@ export class EditFormComponent implements OnInit {
     },
   };
 
+  booksResponse: iJoinBL[] = [];
+  authorsResponse: iJoinAW[] = [];
+
   nationalities: iNationality[] = [];
   genres: iLiteraryGenre[] = [];
+
+  flagForm: boolean = false;
 
   constructor(
     private _Info: InfoService,
     private _service: NationalitiesService,
-    private _serviceJ: LiteraryGenresService
+    private _serviceJ: LiteraryGenresService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this._Info.getInfo(this.id_book).subscribe((response) => {
-      console.log(response), (this.author = response);
+      console.log(response);
+      this.authorsResponse = response;
+      this.author = this.authorsResponse[0];
+      this.author.birthdate = this.convertDateToInputFormat(
+        this.author.birthdate
+      );
     });
 
     this._Info.searchBook(this.id_book).subscribe((response) => {
-      console.log(response), (this.book = response);
+      console.log(response);
+      this.booksResponse = response;
+      this.book = this.booksResponse[0];
+      this.book.date_publication = this.convertDateToInputFormat(
+        this.book.date_publication
+      );
     });
 
     this._service.getNationalities().subscribe((response) => {
@@ -68,5 +88,99 @@ export class EditFormComponent implements OnInit {
       .getGenres()
       .subscribe((respose) => (console.log(respose), (this.genres = respose)));
   }
-  
+
+  convertDateToInputFormat(dateString: string): string {
+    return dateString.split('T')[0];
+  }
+
+  activeForm() {
+    this.flagForm = true;
+  }
+
+  deleteBook() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this._Info.deleteBook(this.book.id_book).subscribe((response) => {
+            if (response.ok) {
+              swalWithBootstrapButtons.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+              });
+            } else {
+              console.log(response);
+            }
+            this.router.navigate(['/']);
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: 'Cancelled',
+            text: 'Your imaginary file is safe :)',
+            icon: 'error',
+          });
+        }
+      });
+  }
+
+  updateData() {
+    const book: iBook = {
+      title: this.book.title,
+      date_publication: this.book.date_publication,
+      amount: this.book.amount,
+      editorial: this.book.editorial,
+      id_literary_genre: this.book.id_literary_genre,
+    };
+
+    const author: iAuthor = {
+      first_name: this.author.first_name,
+      last_name: this.author.last_name,
+      birthdate: this.author.birthdate,
+      nationality: this.author.nationality,
+      place_birth: this.author.place_birth,
+    };
+
+    try {
+      this._Info.updateBook(this.book.id_book, book).subscribe((response) => {
+        console.log(response);
+        if (response.msg == "Resourse created successfully") {
+          this._Info
+            .updateAuthor(this.author.id_author, author)
+            .subscribe((response) => {
+              console.log(response);
+              if (response.msg == "Resourse created successfully") {
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Saved',
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
+        }
+      });
+    } catch (err) {
+      return console.log(`Error has occuerred ${err}`);
+    }
+  }
 }
