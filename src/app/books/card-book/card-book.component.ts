@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { iJoinBL } from '../../registration-page/models/iJoinBL';
 import { iLiteraryGenre } from '../models/iLiteraryGenre';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-book',
@@ -69,5 +70,11 @@ export class CardBookComponent {
     const year = date.getFullYear();
   
     return `${day}/${month}/${year}`;
+  }
+
+  constructor(private router: Router) {}
+
+  navigateToEdit(): void {
+    this.router.navigate(['/edit']);
   }
 }

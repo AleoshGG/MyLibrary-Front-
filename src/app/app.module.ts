@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BooksModule } from "./books/books.module";
 import { AuthorsModule } from "./authors/authors.module";
 import { HttpClientModule } from '@angular/common/http';
+import { EditDataPageComponent } from './edit-data-page/edit-data-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationPageComponent,
     TitleComponent,
     FooterComponent,
+    EditDataPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BooksModule,
     AuthorsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
 ],
   providers: [],
   bootstrap: [AppComponent]
