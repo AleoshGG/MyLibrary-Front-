@@ -7,9 +7,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
 import { BooksModule } from "./books/books.module";
-import { ButtonsComponent } from './buttons/buttons.component';
 import { AuthorsModule } from "./authors/authors.module";
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RegistrationPageComponent,
     TitleComponent,
     FooterComponent,
-    ButtonsComponent
   ],
   imports: [
     BrowserModule,

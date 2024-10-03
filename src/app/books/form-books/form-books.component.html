@@ -7,19 +7,19 @@
   <div class="form">
     <div class="require">
       <label for="title" class="label">Título:</label>
-      <input type="text" name="title" class="input" />
+      <input type="text" name="title" class="input" [(ngModel)]="book.title" />
     </div>
     <div class="require">
       <label for="editorial" class="label">Editorial:</label>
-      <input type="text" name="editorial" class="input" />
+      <input type="text" name="editorial" class="input" [(ngModel)]="book.editorial"/>
     </div>
     <div class="require">
       <label for="date_publication" class="label">Fecha de publicación:</label>
-      <input type="date" class="input" />
+      <input type="date" class="input" [(ngModel)]="book.date_publication"/>
     </div>
     <div class="require">
       <label for="literary_genre" class="label">Género literario:</label>
-      <select name="genre" id="genre" class="input">
+      <select name="genre" id="genre" class="input" [(ngModel)]="book.id_literary_genre">
         <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
           {{ genre.genre_name }}
         </option>
@@ -27,7 +27,9 @@
     </div>
     <div class="require">
       <label for="amount" class="label">Cantidad</label>
-      <input type="number" class="input" />
+      <input type="number" class="input" [(ngModel)]="book.amount"/>
     </div>
+    <br>
+    <app-buttons (save)="getFormData()"></app-buttons>
   </div>
 </div>

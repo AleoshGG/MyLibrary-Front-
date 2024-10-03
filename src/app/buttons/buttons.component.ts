@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
-  styleUrl: './buttons.component.css'
+  styleUrls: ['./buttons.component.css'],
 })
 export class ButtonsComponent {
+  @Output() save = new EventEmitter<void>();
 
+  // Método que se ejecuta al hacer clic en "Guardar"
+  onSave() {
+    this.save.emit();
+  }
+
+  cancel() {
+    location.reload();
+  }
 }
