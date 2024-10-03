@@ -76,5 +76,7 @@ export class CardBookComponent {
 
   navigateToEdit(): void {
     this.router.navigate(['/edit']);
+    localStorage.setItem("id_book", this.book.id_book.toString());
+    localStorage.setItem("id_author", this.book.author[0].id_author.toString());
   }
 }

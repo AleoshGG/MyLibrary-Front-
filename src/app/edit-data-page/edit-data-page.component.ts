@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './edit-data-page.component.css'
 })
 export class EditDataPageComponent {
-
+  
 }

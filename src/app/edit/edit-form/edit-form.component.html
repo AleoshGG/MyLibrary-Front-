@@ -35,9 +35,11 @@
         <hr>
         <div class="input">
             <label for="literary_genre" class="label">Género literario:</label>
-            <select name="" id="" class="input-info">
-                <option value="1">Terror</option>
-            </select>
+            <select name="genre" id="genre" class="input-info">
+                <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
+                  {{ genre.genre_name }}
+                </option>
+              </select>
         </div>
         <hr>
         <div class="input">
@@ -57,8 +59,8 @@
         <hr>
         <div class="input">
             <label for="nationality" class="label">Nacionalidad:</label>
-            <select name="" id="" class="input-info">
-                <option value="1">Mexicana</option>
+            <select name="nationality" id="nationality" class="input-info">
+                <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
             </select>
         </div>
         <hr>

@@ -9,5 +9,4 @@ export interface iJoinBL {
   editorial: string;
   id_literary_genre: number;
   Literary_genre: iLiteraryGenre;
-  author: iJoinAW[];
 }

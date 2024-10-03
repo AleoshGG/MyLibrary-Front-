@@ -11,6 +11,7 @@ import { AuthorsModule } from "./authors/authors.module";
 import { HttpClientModule } from '@angular/common/http';
 import { EditDataPageComponent } from './edit-data-page/edit-data-page.component';
 import { RouterModule } from '@angular/router';
+import { EditModule } from "./edit/edit.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     BooksModule,
     AuthorsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    EditModule
 ],
   providers: [],
   bootstrap: [AppComponent]
