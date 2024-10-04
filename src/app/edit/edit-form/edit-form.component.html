@@ -1,0 +1,142 @@
+<div class="edit-content">
+    <header>
+        <img src="libro3.png" alt="libro3">
+        <h1>{{book.title}}</h1>
+    </header>
+
+    <div class="options-content">
+        <div class="options">
+            <div class="msg">
+                <img src="info.png" alt="info">
+                <p>Acciones</p>
+            </div>
+            <div class="btn-options">
+                <button class="btn-options-true" (click)="activeForm()">Editar información</button>
+                <button class="btn-options-false" (click)="deleteBook()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-content" *ngIf="flagForm; else disabledForm">
+        <div class="input">
+            <label for="title" class="label">Título:</label>
+            <input type="text" name="title" class="input-info" [(ngModel)]="book.title"> 
+        </div>
+        <hr>
+        <div class="input">
+            <label for="editorial" class="label">Editorial:</label>
+            <input type="text" name="editorial" [(ngModel)]="book.editorial" class="input-info">
+        </div>
+        <hr>
+        <div class="input">
+            <label for="date_publication" class="label">Fecha de publicación:</label>
+            <input type="date" name="date_publication" [(ngModel)]="book.date_publication" class="input-info">
+        </div>
+        <hr>
+        <div class="input">
+            <label for="literary_genre" class="label">Género literario:</label>
+            <select name="genre" id="genre" class="input-info" [(ngModel)]="book.id_literary_genre"> 
+                <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
+                  {{ genre.genre_name }}
+                </option>
+              </select>
+        </div>
+        <hr>
+        <div class="input">
+            <label for="amount" class="label">Cantidad:</label>
+            <input type="number" name="amount" [(ngModel)]="book.amount" class="input-info" >
+        </div>
+        <hr>
+        <div class="input">
+            <label for="first_name" class="label">Nombre del autor:</label>
+            <input type="text" name="first_name" [(ngModel)]="author.first_name" class="input-info">
+        </div>
+        <hr>
+        <div class="input">
+            <label for="last_name" class="label">Apellidos:</label>
+            <input type="text" name="last_name" [(ngModel)]="author.last_name" class="input-info">
+        </div>
+        <hr>
+        <div class="input">
+            <label for="nationality" class="label">Nacionalidad:</label>
+            <select name="nationality" id="nationality" class="input-info" [(ngModel)]="author.nationality">
+                <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
+            </select>
+        </div>
+        <hr>
+        <div class="input">
+            <label for="birthdate" class="label">Fecha de nacimiento:</label>
+            <input type="date" name="birthdate" [ngModel]="author.birthdate" class="input-info">
+        </div>
+        <hr>
+        <div class="input">
+            <label for="place_birth" class="label">Lugar de nacimiento:</label>
+            <input type="text" name="place_birth" [ngModel]="author.place_birth" class="input-info">
+        </div>
+        <hr>
+    </div>
+
+    <ng-template #disabledForm>
+        <div class="form-content">
+            <div class="input">
+                <label for="title" class="label">Título:</label>
+                <input type="text" name="title" class="input-info" disabled [(ngModel)]="book.title"> 
+            </div>
+            <hr>
+            <div class="input">
+                <label for="editorial" class="label">Editorial:</label>
+                <input type="text" name="editorial" [(ngModel)]="book.editorial" class="input-info" disabled>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="date_publication" class="label">Fecha de publicación:</label>
+                <input type="date" name="date_publication" [(ngModel)]="book.date_publication" class="input-info" disabled>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="literary_genre" class="label">Género literario:</label>
+                <select name="genre" id="genre" class="input-info" disabled [(ngModel)]="book.id_literary_genre"> 
+                    <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
+                      {{ genre.genre_name }}
+                    </option>
+                  </select>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="amount" class="label">Cantidad:</label>
+                <input type="number" name="amount" [(ngModel)]="book.amount" class="input-info" disabled >
+            </div>
+            <hr>
+            <div class="input">
+                <label for="first_name" class="label">Nombre del autor:</label>
+                <input type="text" name="first_name" [(ngModel)]="author.first_name" class="input-info" disabled>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="last_name" class="label">Apellidos:</label>
+                <input type="text" name="last_name" [(ngModel)]="author.last_name" class="input-info" disabled>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="nationality" class="label">Nacionalidad:</label>
+                <select name="nationality" id="nationality" class="input-info" disabled [(ngModel)]="author.nationality">
+                    <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
+                </select>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="birthdate" class="label">Fecha de nacimiento:</label>
+                <input type="date" name="birthdate" [ngModel]="author.birthdate" class="input-info" disabled>
+            </div>
+            <hr>
+            <div class="input">
+                <label for="place_birth" class="label">Lugar de nacimiento:</label>
+                <input type="text" name="place_birth" [ngModel]="author.place_birth" class="input-info" disabled>
+            </div>
+            <hr>
+        </div>
+    </ng-template>
+
+    <app-buttons (save)="updateData()"></app-buttons>
+
+</div>

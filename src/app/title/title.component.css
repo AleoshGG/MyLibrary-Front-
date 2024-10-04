@@ -1,0 +1,25 @@
+.title-contend {
+  width: 97%;
+}
+
+.title-box {
+  display: flex;
+  width: 300px;
+  color: #376996;
+  box-shadow: 0px 0px 10px 2px #0000005b;
+  align-items: center;
+  gap: 20px;
+  height: 60px;
+  padding: 5px;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.title-box > img {
+  height: 50px;
+}
+
+.title-box:hover {
+  transform: scale(0.99);
+  transition: 0.1s;
+}

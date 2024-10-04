@@ -1,0 +1,21 @@
+<div class="card-content" (click)="navigateToEdit()">
+    <div class="img">
+        <img src="libro2.png" alt="libro">
+    </div>
+
+    <div class="title">
+        <p>{{book.title}}</p>
+    </div>
+
+    <div class="authors">
+        <p>Autores:</p>
+        <ul>
+            <li *ngFor="let author of book.author">{{author.first_name}} {{author.last_name}}</li>
+        </ul>
+    </div>
+
+    <div class="publication">
+        <p>Publicado:</p>
+        <p>{{convertDate(book.date_publication)}}</p>
+    </div>
+</div>

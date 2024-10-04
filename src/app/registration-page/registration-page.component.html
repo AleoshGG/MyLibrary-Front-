@@ -1,0 +1,34 @@
+<div class="page-content">
+  <app-title></app-title>
+
+  <div class="info-content">
+    <div class="info-msg">
+      <img src="info.png" alt="info" />
+      <p>Usa este apartado para añadir nuevos libros</p>
+    </div>
+    <div class="info-msg">
+      <img src="info.png" alt="info" />
+      <p>Toca en un libro para tener más información sobre él</p>
+    </div>
+  </div>
+
+  <div class="resourse-content">
+    <div class="forms-content">
+      <app-form-books
+        (formDataEmitter)="onFormBooksDataReceived($event)"
+      ></app-form-books>
+      <br /><br />
+      <app-form-author
+        [id_book]="id_book"
+        (formDataEmitter)="onFormAuthorsDataReceived($event)"
+      ></app-form-author>
+      <br /><br />
+    </div>
+
+    <div class="cards-content">
+      <app-card-book *ngFor="let book of books" [book]="book"></app-card-book>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

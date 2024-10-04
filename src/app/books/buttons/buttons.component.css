@@ -1,0 +1,60 @@
+.buttons-content {
+  width: 80%;
+  height: 100px;
+}
+
+.msg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  height: 40%;
+}
+
+.msg > img {
+  height: 30px;
+}
+
+.btn-ct {
+  align-items: center;
+  display: flex;
+  height: 60%;
+  justify-content: space-between;
+}
+
+.btn-true {
+  width: 130px;
+  height: 35px;
+  background-color: #23c736;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.btn-false {
+  width: 130px;
+  height: 35px;
+  background-color: #ec3131;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.btn-true:hover,
+.btn-false:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn-false:active {
+    background-color: #be1414;
+    transition: 0.2s;
+}
+
+.btn-true:active {
+    background-color: #20a830;
+    transition: 0.2s;
+}

@@ -1,0 +1,80 @@
+<div class="form-content">
+  <div class="info">
+    <h2>Autores</h2>
+    <hr />
+  </div>
+  <div class="btn-content">
+    <button class="btn" (click)="showAuthors()">Escoger existentes</button>
+  </div>
+
+  <div class="list-authors" *ngIf="flagAuthors">
+    <div class="list-input" *ngFor="let author of authors">
+      <label>{{author.first_name}} {{author.last_name}}</label>
+      <input type="checkbox" name="" id="" [value]="author.id_author" (change)="onCheckboxChange($event)"/>
+    </div>
+  </div>
+
+  <div class="btn-content">
+    <button class="btn" (click)="activeForm()">Añadir uno nuevo</button>
+  </div>
+
+  <div class="form" *ngIf="flagForm; else disabledForm">
+    <div class="require">
+      <label for="fisrt_name" class="label">Nombre:</label>
+      <input type="text" name="first_name" class="input" [(ngModel)]="author.first_name" />
+    </div>
+    <div class="require">
+      <label for="last_name" class="label">Apellidos:</label>
+      <input type="text" name="last_name" class="input" [(ngModel)]="author.last_name" />
+    </div>
+    <div class="require">
+      <label for="nationality" class="label">Nacionalidad:</label>
+      <select name="nationality" id="nationality" class="input" [(ngModel)]="author.nationality">
+        <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
+      </select>
+    </div>
+    <div class="require">
+      <label for="birthdate" class="label">Fecha de nacimiento:</label>
+      <input type="date" class="input" [(ngModel)]="author.birthdate" name="birthdate" />
+    </div>
+    <div class="require">
+      <label for="place_birth" class="label">Lugar de nacimiento</label>
+      <input type="text" class="input" [(ngModel)]="author.place_birth" name="place_birth" />
+    </div>
+  </div>
+
+  <ng-template #disabledForm> 
+    <div class="form" >
+    <div class="require">
+      <label for="fisrt_name" class="label">Nombre:</label>
+      <input type="text" name="first_name" class="input" disabled [(ngModel)]="author.first_name" />
+    </div>
+    <div class="require">
+      <label for="last_name" class="label">Apellidos:</label>
+      <input type="text" name="last_name" class="input" disabled [(ngModel)]="author.last_name" />
+    </div>
+    <div class="require">
+      <label for="nationality" class="label">Nacionalidad:</label>
+      <select name="nationality" id="nationality" class="input" disabled [(ngModel)]="author.nationality">
+        <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
+      </select>
+    </div>
+    <div class="require">
+      <label for="birthdate" class="label">Fecha de nacimiento:</label>
+      <input type="date" class="input" disabled [(ngModel)]="author.birthdate" name="birthdate" />
+    </div>
+    <div class="require">
+      <label for="place_birth" class="label">Lugar de nacimiento</label>
+      <input type="text" class="input" disabled [(ngModel)]="author.place_birth" name="place_birth" />
+    </div>
+    
+  </div>
+  </ng-template>
+  
+  <app-buttons (save)="getFormData()" *ngIf="flagButton; else otherAction"></app-buttons>
+
+  <ng-template #otherAction>
+    <app-buttons (save)="post()"></app-buttons>
+  </ng-template>
+
+</div>
