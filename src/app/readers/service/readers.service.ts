@@ -15,4 +15,9 @@ export class ReadersService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._http.post(`${this.url_base}add`, reader, { headers });
   }
+
+  searchReader(name: string): Observable<iReader> {
+    const encodedName = encodeURIComponent(name);
+    return this._http.get<iReader>(`${this.url_base}reader/${encodedName}`);
+  }
 }
