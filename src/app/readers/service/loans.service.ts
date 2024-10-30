@@ -14,13 +14,13 @@ export class LoansService {
 
   getNotDelivered(id_reader: number): Observable<iBook[]> {
     return this._http.get<iLoan[]>(`${this.url_base}reader/${id_reader}`).pipe(
-        switchMap((loans) => {
-          const bookRequests = loans.map((loan) =>
-            this.getBookById(loan.id_book) // Get book details for each loan
-          );
-          return forkJoin(bookRequests); // Wait for all book requests to complete
-        })
-      );
+      switchMap((loans) => {
+        const bookRequests = loans.map(
+          (loan) => this.getBookById(loan.id_book) // Get book details for each loan
+        );
+        return forkJoin(bookRequests); // Wait for all book requests to complete
+      })
+    );
   }
 
   private getBookById(id_book: number): Observable<iBook> {

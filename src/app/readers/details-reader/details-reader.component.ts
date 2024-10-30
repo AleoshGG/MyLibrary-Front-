@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { iReader } from '../models/iReader';
 import { LoansService } from '../service/loans.service';
 import { iBook } from '../models/iBook';
+import { iStatus } from '../models/iStatus';
+import { ReadersService } from '../service/readers.service';
 
 @Component({
   selector: 'details-reader',
@@ -19,7 +21,10 @@ export class DetailsReaderComponent implements OnInit {
 
   books: iBook[] = [];
 
-  constructor(private service: LoansService) {}
+  constructor(
+    private service: LoansService,
+    private service1: ReadersService
+  ) {}
 
   ngOnInit(): void {
     this.service.getNotDelivered(this.reader.id_reader || 0).subscribe({
@@ -32,5 +37,49 @@ export class DetailsReaderComponent implements OnInit {
       },
     });
     console.log(this.books);
+  }
+
+  setStatusSuspended(): void {
+    const { id_reader } = this.reader;
+    const status: iStatus = {
+      id_reader: id_reader || 0,
+      status: 'suspended',
+    };
+    this.service1.setStatus(status).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+
+  setStatusActive(): void {
+    const { id_reader } = this.reader;
+    const status: iStatus = {
+      id_reader: id_reader || 0,
+      status: 'active',
+    };
+    this.service1.setStatus(status).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+
+  deleteAccount(): void {
+    const { id_reader } = this.reader;
+    this.service1.deleteAccount(id_reader || 0).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }
