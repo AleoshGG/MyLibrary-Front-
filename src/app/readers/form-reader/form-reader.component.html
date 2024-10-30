@@ -1,13 +1,13 @@
 <div class="form-content">
   <form>
     <label for="first_name" class="label">Nombres:</label>
-    <input type="text" name="first_name" class="input" />
+    <input [(ngModel)]="reader.first_name" type="text" name="first_name" class="input" />
     <label for="last_name" class="label">Apellidos:</label>
-    <input type="text" name="last_name" class="input" />
+    <input [(ngModel)]="reader.last_name" type="text" name="last_name" class="input" />
     <label for="email" class="label">Correo Electrónico</label>
-    <input type="email" name="email" class="input" />
+    <input [(ngModel)]="reader.email" type="email" name="email" class="input" />
     <label for="phone_number" class="label">Número telefónico</label>
-    <input type="tel" name="phone_number" class="input" />
-    <input type="button" value="Guardar"/>
+    <input [(ngModel)]="reader.phone_number" type="tel" name="phone_number" class="input" />
+    <input type="button" value="Guardar" (click)="saveReader()" />
   </form>
 </div>

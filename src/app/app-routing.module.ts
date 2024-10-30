@@ -5,9 +5,9 @@ import { EditDataPageComponent } from './edit-data-page/edit-data-page.component
 import { DashboardReadersComponent } from './readers/dashboard-readers/dashboard-readers.component';
 
 const routes: Routes = [
-  { path: '', component: RegistrationPageComponent },
+  { path: 'a', component: RegistrationPageComponent },
   { path: 'edit', component: EditDataPageComponent },
-  { path: 'readers', component: DashboardReadersComponent },
+  { path: '', component: DashboardReadersComponent },
 ];
 
 @NgModule({
