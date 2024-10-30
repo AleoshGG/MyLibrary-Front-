@@ -4,6 +4,7 @@ import { DashboardReadersComponent } from './dashboard-readers/dashboard-readers
 import { FormReaderComponent } from './form-reader/form-reader.component';
 import { FormsModule } from '@angular/forms';
 import { SearcherComponent } from './searcher/searcher.component';
+import { DetailsReaderComponent } from './details-reader/details-reader.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SearcherComponent } from './searcher/searcher.component';
     DashboardReadersComponent,
     FormReaderComponent,
     SearcherComponent,
+    DetailsReaderComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [

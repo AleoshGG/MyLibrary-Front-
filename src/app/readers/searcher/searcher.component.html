@@ -13,7 +13,9 @@
     <ng-template #options>
       <img src="" alt="imagenSinResultados" *ngIf="flagSearch; else details" />
 
-      <ng-template #details> </ng-template>
+      <ng-template #details> 
+        <details-reader [reader]="reader"></details-reader>
+      </ng-template>
     </ng-template>
   </div>
 </div>

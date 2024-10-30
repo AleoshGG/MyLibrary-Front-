@@ -1,0 +1,16 @@
+<div class="details-content">
+    <div class="details-text">
+        <p>Nombre: {{reader.first_name}}</p>
+        <p>Estado de la cuenta: {{reader.account_status}}</p>
+        <p>Libros aún no devueltos:</p>
+        <ul *ngFor="let book of books">
+            <li>{{book.title}}</li>
+        </ul> 
+    </div>
+    Elije qué pasará con la cuenta
+    <div class="btn-actions">
+        <button>Desactivar</button>
+        <button>Activar</button>
+        <button>Eliminar</button>
+    </div>
+</div>
