@@ -1,0 +1,21 @@
+<div class="searcher-content">
+  <h1>Buscador de lectores</h1>
+  <input
+    type="text"
+    placeholder="Ingresa el nombre completo del lector"
+    [(ngModel)]="readerName"
+  />
+  <button (click)="search()">Buscar</button>
+
+  <div>
+    <img src="" alt="imagenInicial" *ngIf="flagDefault; else options" />
+
+    <ng-template #options>
+      <img src="" alt="imagenSinResultados" *ngIf="flagSearch; else details" />
+
+      <ng-template #details> 
+        <details-reader [reader]="reader"></details-reader>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

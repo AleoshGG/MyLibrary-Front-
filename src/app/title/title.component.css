@@ -1,5 +1,6 @@
 .title-contend {
   width: 97%;
+  padding: 3% 0 0 3%;
 }
 
 .title-box {
@@ -22,4 +23,5 @@
 .title-box:hover {
   transform: scale(0.99);
   transition: 0.1s;
+  cursor: pointer;
 }

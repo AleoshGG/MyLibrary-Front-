@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
@@ -12,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditDataPageComponent } from './edit-data-page/edit-data-page.component';
 import { RouterModule } from '@angular/router';
 import { EditModule } from "./edit/edit.module";
+import { ReadersModule } from './readers/readers.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { EditModule } from "./edit/edit.module";
     AuthorsModule,
     HttpClientModule,
     RouterModule,
-    EditModule
+    EditModule, 
+    ReadersModule
 ],
   providers: [],
   bootstrap: [AppComponent]
