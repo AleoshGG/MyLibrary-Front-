@@ -76,6 +76,7 @@ export class SearchesComponent {
 
   addBook(id_book: number): void {
     this.books_ids.push(id_book);
+    this.addBooks.emit(id_book);
     console.log(this.books_ids);
   }
 }

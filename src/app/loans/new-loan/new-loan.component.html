@@ -1,9 +1,10 @@
 <div>
-
-  <searches (searchData)="getDataReader($event)" (addBooks)="addBooks($event)"></searches>
+  <searches
+    (searchData)="getDataReader($event)"
+    (addBooks)="addBooks($event)"
+  ></searches>
 
   <label>Ingresa la fecha de entrega:</label>
-  <input type="date" />
-  <button>Generar préstamo</button>
-
+  <input type="date" [(ngModel)]="delivery_date" />
+  <button (click)="addLoan()">Generar préstamo</button>
 </div>

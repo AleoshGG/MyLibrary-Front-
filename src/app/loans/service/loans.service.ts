@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { iReader } from '../models/iReader';
 import { Observable } from 'rxjs';
 import { iBook } from '../models/iBook';
+import { iLoan } from '../models/iLoan';
 
 
 @Injectable({
@@ -29,5 +30,10 @@ export class LoansService {
 
   deleteAccount(id_reader: number): Observable<any> {
     return this._http.delete(`${this.url_base}delete/${id_reader}`);
+  }
+
+  addNewLoan(loan: iLoan): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this._http.post(`http://localhost:3000/loans/add`, loan, { headers });
   }
 }
