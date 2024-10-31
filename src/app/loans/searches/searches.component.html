@@ -1,0 +1,21 @@
+<div class="searcher-content">
+  <div>
+    <input
+      type="text"
+      placeholder="Ingresa el nombre completo del lector"
+      [(ngModel)]="readerName"
+    />
+    <button (click)="searchReader()">Buscar</button>
+    <details-search *ngIf="flagDetails" [reader]="reader" [work]="'show'"/>
+  </div>
+
+  <div>
+    <input
+      type="text"
+      placeholder="Ingresa el titulo del libro"
+      [(ngModel)]="bookTitle"
+    />
+    <button (click)="searchBook()">Buscar</button>
+    <details-search *ngIf="flagDetails" [book]="book" [work]="'actions'" (addBooks)="addBook($event)"/>
+  </div>
+</div>

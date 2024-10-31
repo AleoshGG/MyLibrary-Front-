@@ -12,6 +12,7 @@ import { EditDataPageComponent } from './edit-data-page/edit-data-page.component
 import { RouterModule } from '@angular/router';
 import { EditModule } from "./edit/edit.module";
 import { ReadersModule } from './readers/readers.module';
+import { LoansModule } from './loans/loans.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReadersModule } from './readers/readers.module';
     HttpClientModule,
     RouterModule,
     EditModule, 
-    ReadersModule
+    ReadersModule,
+    LoansModule
 ],
   providers: [],
   bootstrap: [AppComponent]

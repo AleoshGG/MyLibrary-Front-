@@ -1,0 +1,9 @@
+<div *ngIf="work == 'show'; else actions">
+    <p>Nombre: {{reader.first_name}} {{reader.last_name}}</p>
+    <p>Estado de cuenta: {{reader.account_status}}</p>
+</div>
+
+<ng-template #actions>
+    <p>Titulo: {{book.title}}</p>
+    <button (click)="add()">Agregar</button>
+</ng-template>
