@@ -4,6 +4,7 @@ import { LoansService } from '../service/loans.service';
 import { iBook } from '../models/iBook';
 import { iStatus } from '../models/iStatus';
 import { ReadersService } from '../service/readers.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'details-reader',
@@ -47,6 +48,11 @@ export class DetailsReaderComponent implements OnInit {
     };
     this.service1.setStatus(status).subscribe({
       next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'La cuenta está suspendida!',
+        });
         console.log(response);
       },
       error: (err) => {
@@ -63,6 +69,11 @@ export class DetailsReaderComponent implements OnInit {
     };
     this.service1.setStatus(status).subscribe({
       next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'La cuenta está activada!',
+        });
         console.log(response);
       },
       error: (err) => {
@@ -75,6 +86,11 @@ export class DetailsReaderComponent implements OnInit {
     const { id_reader } = this.reader;
     this.service1.deleteAccount(id_reader || 0).subscribe({
       next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'La cuenta está eliminada!',
+        });
         console.log(response);
       },
       error: (err) => {
