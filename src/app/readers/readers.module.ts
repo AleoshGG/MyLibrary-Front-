@@ -5,6 +5,7 @@ import { FormReaderComponent } from './form-reader/form-reader.component';
 import { FormsModule } from '@angular/forms';
 import { SearcherComponent } from './searcher/searcher.component';
 import { DetailsReaderComponent } from './details-reader/details-reader.component';
+import { MsgInfoComponent } from '../msg-info/msg-info.component';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { DetailsReaderComponent } from './details-reader/details-reader.componen
     SearcherComponent,
     DetailsReaderComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MsgInfoComponent],
   exports: [
     DashboardReadersComponent
   ]

@@ -1,3 +1,10 @@
 .content {
-    padding: 3%;
+  padding: 3%;
+  display: flex;
+  width: 94%;
+  gap: 2%;
+}
+
+.content-left {
+  width: 45%;
 }
