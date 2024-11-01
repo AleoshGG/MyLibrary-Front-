@@ -7,11 +7,11 @@
   <div class="form">
     <div class="require">
       <label for="title" class="label">Título:</label>
-      <input type="text" name="title" class="input" [(ngModel)]="book.title" />
+      <input type="text" name="title" class="input" [(ngModel)]="book.title" placeholder="Título de la obra"/>
     </div>
     <div class="require">
       <label for="editorial" class="label">Editorial:</label>
-      <input type="text" name="editorial" class="input" [(ngModel)]="book.editorial"/>
+      <input type="text" name="editorial" class="input" [(ngModel)]="book.editorial" placeholder="Editorial"/>
     </div>
     <div class="require">
       <label for="date_publication" class="label">Fecha de publicación:</label>
@@ -19,7 +19,7 @@
     </div>
     <div class="require">
       <label for="literary_genre" class="label">Género literario:</label>
-      <select name="genre" id="genre" class="input" [(ngModel)]="book.id_literary_genre">
+      <select name="genre" id="genre" class="input" [(ngModel)]="book.id_literary_genre" >
         <option *ngFor="let genre of genres" [value]="genre.id_literary_genre">
           {{ genre.genre_name }}
         </option>

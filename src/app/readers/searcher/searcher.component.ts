@@ -34,7 +34,6 @@ export class SearcherComponent {
         console.log(this.reader);
       },
       error: (error) => {
-        alert('No se encontró nada');
         console.error(error);
       },
     });

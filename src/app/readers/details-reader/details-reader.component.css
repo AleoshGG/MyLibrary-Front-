@@ -1,0 +1,53 @@
+h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+p {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+p > img {
+  height: 20px;
+}
+
+.btn-actions {
+  margin-top: 20px;
+  width: 120%;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 80px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+#active {
+  background: #23c736;
+  color: #fff;
+}
+
+#suspended {
+  background: #ff4800;
+  color: #fff;
+}
+
+#delete {
+  background: #ec3131;
+  color: #fff;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+  cursor: pointer;
+}

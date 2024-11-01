@@ -21,15 +21,15 @@
   <div class="form" *ngIf="flagForm; else disabledForm">
     <div class="require">
       <label for="fisrt_name" class="label">Nombre:</label>
-      <input type="text" name="first_name" class="input" [(ngModel)]="author.first_name" />
+      <input type="text" name="first_name" class="input" [(ngModel)]="author.first_name" placeholder="Nombre del autor"/>
     </div>
     <div class="require">
       <label for="last_name" class="label">Apellidos:</label>
-      <input type="text" name="last_name" class="input" [(ngModel)]="author.last_name" />
+      <input type="text" name="last_name" class="input" [(ngModel)]="author.last_name" placeholder="Apellidos del autor" />
     </div>
     <div class="require">
       <label for="nationality" class="label">Nacionalidad:</label>
-      <select name="nationality" id="nationality" class="input" [(ngModel)]="author.nationality">
+      <select name="nationality" id="nationality" class="input" [(ngModel)]="author.nationality" aria-placeholder="Elije una opción">
         <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
       </select>
     </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="require">
       <label for="place_birth" class="label">Lugar de nacimiento</label>
-      <input type="text" class="input" [(ngModel)]="author.place_birth" name="place_birth" />
+      <input type="text" class="input" [(ngModel)]="author.place_birth" name="place_birth" placeholder="De dónde viene"/>
     </div>
   </div>
 
@@ -47,15 +47,15 @@
     <div class="form" >
     <div class="require">
       <label for="fisrt_name" class="label">Nombre:</label>
-      <input type="text" name="first_name" class="input" disabled [(ngModel)]="author.first_name" />
+      <input type="text" name="first_name" class="input" disabled [(ngModel)]="author.first_name" placeholder="Nombre del autor"/>
     </div>
     <div class="require">
       <label for="last_name" class="label">Apellidos:</label>
-      <input type="text" name="last_name" class="input" disabled [(ngModel)]="author.last_name" />
+      <input type="text" name="last_name" class="input" disabled [(ngModel)]="author.last_name" placeholder="Apellidos del autor"/>
     </div>
     <div class="require">
       <label for="nationality" class="label">Nacionalidad:</label>
-      <select name="nationality" id="nationality" class="input" disabled [(ngModel)]="author.nationality">
+      <select name="nationality" id="nationality" class="input" disabled [(ngModel)]="author.nationality" aria-placeholder="Elije una opción">
         <option *ngFor="let nationality of nationalities" [value]="nationality.id_nationality">{{nationality.nationality_name}}</option>
       </select>
     </div>
@@ -65,7 +65,7 @@
     </div>
     <div class="require">
       <label for="place_birth" class="label">Lugar de nacimiento</label>
-      <input type="text" class="input" disabled [(ngModel)]="author.place_birth" name="place_birth" />
+      <input type="text" class="input" disabled [(ngModel)]="author.place_birth" name="place_birth" placeholder="De dónde viene"/>
     </div>
     
   </div>
