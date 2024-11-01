@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { iDataReader } from '../models/iDataReader';
 import { iLoan } from '../models/iLoan';
 import { LoansService } from '../service/loans.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'new-loan',
@@ -36,28 +37,53 @@ export class NewLoanComponent {
     const books = this.books_ids;
 
     if (account_status == 'suspended') {
-      return alert('La cuenta esta suspendida');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La cuenta está suspendida!',
+      });
+      return;
     }
 
     if (books.length > 0) {
-      books.forEach((id_book) => {
-        const loan: iLoan = {
-          id_reader: id_reader,
-          id_book: id_book,
-          loan_date: loanDate.toString(),
-          delivery_date: delivery,
-          status: 'not_delivered',
-        };
-
-        this.service.addNewLoan(loan).subscribe({
-          next: (response) => {
-            console.log(response);
-          },
-          error: (err) => {
-            console.error(err);
-          },
+      if (delivery == '0000-00-00') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Ingresa la fecha de devolución!',
         });
+        return;
+      }
+        books.forEach((id_book) => {
+          const loan: iLoan = {
+            id_reader: id_reader,
+            id_book: id_book,
+            loan_date: loanDate.toString(),
+            delivery_date: delivery,
+            status: 'not_delivered',
+          };
+
+          this.service.addNewLoan(loan).subscribe({
+            next: (response) => {
+              Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: 'Se registró el préstamo!',
+              });
+              console.log(response);
+            },
+            error: (err) => {
+              console.error(err);
+            },
+          });
+        });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No ha agregado libros!',
       });
+      return;
     }
   }
 }

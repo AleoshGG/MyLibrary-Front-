@@ -3,6 +3,7 @@ import { LoansService } from '../service/loans.service';
 import { iReader } from '../models/iReader';
 import { iDataReader } from '../models/iDataReader';
 import { iBook } from '../models/iBook';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'searches',
@@ -45,6 +46,16 @@ export class SearchesComponent {
 
   searchReader(): void {
     const name = this.readerName;
+
+    if (name == ' ') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ingresa un nombre!',
+      });
+      return;
+    }
+
     this._service.searchReader(name).subscribe({
       next: (response) => {
         this.reader = response;
@@ -55,7 +66,11 @@ export class SearchesComponent {
         this.searchData.emit(this.dataReader);
       },
       error: (err) => {
-        alert('No hubo coincidencias');
+        Swal.fire({
+          icon: 'info',
+          title: 'Oops...',
+          text: 'No hubo coincidencias!',
+        });
         console.error(err);
       },
     });
@@ -63,17 +78,30 @@ export class SearchesComponent {
 
   searchBook(): void {
     const name = this.bookTitle;
+
+    if (name == ' ') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ingresa un título!',
+      });
+      return;
+    }
+
     this._service.searchBook(name).subscribe({
       next: (response) => {
-        if(!response) {
-          return alert('No hubo coincidencias');
+        if (!response) {
+          Swal.fire({
+            icon: 'info',
+            title: 'Oops...',
+            text: 'No hubo coincidencias!',
+          });
         }
         console.log(response);
         this.book = response;
         this.flagDetails = true;
       },
       error: (err) => {
-        alert('No hubo coincidencias');
         console.error(err);
       },
     });

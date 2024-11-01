@@ -3,6 +3,7 @@ import { iLoan } from '../models/iLoan';
 import { iDataReader } from '../models/iDataReader';
 import { LoansService } from '../service/loans.service';
 import { iStatusLoan } from '../models/iStatusLoan';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'delivery',
@@ -31,10 +32,24 @@ export class DeliveryComponent {
 
   deleteLoan(): void {
     if (this.books_ids.length <= 0) {
-      return alert('No se agregaron libros');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se agregaron libros!',
+      });
+      return;
     }
 
     const { id_reader } = this.dataReader;
+
+    if (id_reader == 0) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Oops...',
+        text: 'No se elijió al lector!',
+      });
+      return;
+    }
 
     this.books_ids.forEach((book) => {
       const status: iStatusLoan = {
@@ -45,8 +60,10 @@ export class DeliveryComponent {
 
       this.service.setStatusLoan(status).subscribe({
         next: (response) => {
-          if(response[0] === 0) {
-            alert("No se actualizo un libro, porque no estaba en la lista de prestados")
+          if (response[0] === 0) {
+            alert(
+              'No se actualizo un libro, porque no estaba en la lista de prestados'
+            );
           }
           console.log(response);
         },
@@ -57,12 +74,12 @@ export class DeliveryComponent {
 
       this.service.deleteLoan(id_reader).subscribe({
         next(response) {
-            console.log(response);
+          console.log(response);
         },
         error(err) {
-            console.error(err);
+          console.error(err);
         },
-      })
+      });
     });
   }
 }

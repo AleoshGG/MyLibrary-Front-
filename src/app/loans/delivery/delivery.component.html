@@ -1,8 +1,11 @@
-<div>
+<div class="content">
+  <h1>Devoluciones</h1>
   <searches
     (searchData)="getDataReader($event)"
     (addBooks)="addBooks($event)"
   ></searches>
 
-  <button (click)="deleteLoan()">Devolver libro(s)</button>
+  <div class="btn">
+    <button (click)="deleteLoan()">Devolver libro(s)</button>
+  </div>
 </div>

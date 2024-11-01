@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoansService } from '../service/loans.service';
 import { iExpired } from '../models/iExpired';
 import { iStatus } from '../models/iStatus';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'expired-loans',
@@ -33,7 +34,11 @@ export class ExpiredLoansComponent implements OnInit {
     this.service.setStatus(stasus).subscribe({
       next(value) {
         console.log(value);
-        alert('Cuenta suspendida');
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Se cuenta suspendiada!',
+        });
       },
       error(err) {
         console.error(err);
@@ -44,6 +49,11 @@ export class ExpiredLoansComponent implements OnInit {
   deleteAccount(id_reader: number): void {
     this.service.deleteAccount(id_reader).subscribe({
       next(value) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Se eliminó la cuenta!',
+        });
         console.log(value);
       },
       error(err) {
