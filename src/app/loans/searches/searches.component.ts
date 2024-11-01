@@ -55,6 +55,7 @@ export class SearchesComponent {
         this.searchData.emit(this.dataReader);
       },
       error: (err) => {
+        alert('No hubo coincidencias');
         console.error(err);
       },
     });
@@ -64,11 +65,15 @@ export class SearchesComponent {
     const name = this.bookTitle;
     this._service.searchBook(name).subscribe({
       next: (response) => {
+        if(!response) {
+          return alert('No hubo coincidencias');
+        }
         console.log(response);
         this.book = response;
         this.flagDetails = true;
       },
       error: (err) => {
+        alert('No hubo coincidencias');
         console.error(err);
       },
     });

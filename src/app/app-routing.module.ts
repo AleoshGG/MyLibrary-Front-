@@ -9,8 +9,8 @@ import { ViewLoansComponent } from './loans/view-loans/view-loans.component';
 const routes: Routes = [
   { path: 'a', component: RegistrationPageComponent },
   { path: 'edit', component: EditDataPageComponent },
-  { path: '', component: DashboardReadersComponent },
-  { path: 'b', component: ViewLoansComponent}
+  { path: 'b', component: DashboardReadersComponent },
+  { path: '', component: ViewLoansComponent}
 ];
 
 @NgModule({

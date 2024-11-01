@@ -4,7 +4,7 @@ import { iReader } from '../models/iReader';
 import { Observable } from 'rxjs';
 import { iBook } from '../models/iBook';
 import { iLoan } from '../models/iLoan';
-
+import { iStatus } from '../../readers/models/iStatus';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,9 @@ export class LoansService {
   }
 
   searchBook(name: string): Observable<iBook> {
-    return this._http.get<iBook>(`http://localhost:3000/books/searchby/${name}`);
+    return this._http.get<iBook>(
+      `http://localhost:3000/books/searchby/${name}`
+    );
   }
 
   /* setStatus(status: iStatus): Observable<any> {
@@ -28,12 +30,25 @@ export class LoansService {
     return this._http.put(`${this.url_base}status`, status, { headers });
   } */
 
+  deleteLoan(id_reader: number): Observable<any> {
+    return this._http.delete(`http://localhost:3000/loans/delete/${id_reader}`);
+  }
+
   deleteAccount(id_reader: number): Observable<any> {
     return this._http.delete(`${this.url_base}delete/${id_reader}`);
   }
 
+  setStatusLoan(newStatus: iStatus): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this._http.put(`http://localhost:3000/loans/status`, newStatus, {
+      headers,
+    });
+  }
+
   addNewLoan(loan: iLoan): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.post(`http://localhost:3000/loans/add`, loan, { headers });
+    return this._http.post(`http://localhost:3000/loans/add`, loan, {
+      headers,
+    });
   }
 }

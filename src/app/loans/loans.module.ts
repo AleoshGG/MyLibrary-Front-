@@ -5,9 +5,10 @@ import { NewLoanComponent } from './new-loan/new-loan.component';
 import { SearchesComponent } from './searches/searches.component';
 import { FormsModule } from '@angular/forms';
 import { DetailsSearchComponent } from './details-search/details-search.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 @NgModule({
-  declarations: [ViewLoansComponent, NewLoanComponent, SearchesComponent, DetailsSearchComponent],
+  declarations: [ViewLoansComponent, NewLoanComponent, SearchesComponent, DetailsSearchComponent, DeliveryComponent],
   imports: [CommonModule, FormsModule],
   exports: [ViewLoansComponent],
 
