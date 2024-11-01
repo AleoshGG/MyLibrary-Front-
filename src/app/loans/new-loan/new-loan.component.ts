@@ -30,13 +30,15 @@ export class NewLoanComponent {
   }
 
   addLoan(): void {
-    alert('Hola');
-    const { id_reader } = this.dataReader;
+    const { id_reader, account_status } = this.dataReader;
     const delivery = this.delivery_date;
     const loanDate = new Date().toISOString;
     const books = this.books_ids;
 
-    console.log(books.length);
+    if (account_status == 'suspended') {
+      return alert('La cuenta esta suspendida');
+    }
+
     if (books.length > 0) {
       books.forEach((id_book) => {
         const loan: iLoan = {
