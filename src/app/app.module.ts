@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 import { EditModule } from "./edit/edit.module";
 import { ReadersModule } from './readers/readers.module';
 import { LoansModule } from './loans/loans.module';
-
+import { MsgInfoComponent } from "./msg-info/msg-info.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +29,10 @@ import { LoansModule } from './loans/loans.module';
     AuthorsModule,
     HttpClientModule,
     RouterModule,
-    EditModule, 
+    EditModule,
     ReadersModule,
-    LoansModule
+    LoansModule,
+    MsgInfoComponent
 ],
   providers: [],
   bootstrap: [AppComponent]
