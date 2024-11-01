@@ -4,7 +4,8 @@ import { iReader } from '../models/iReader';
 import { Observable } from 'rxjs';
 import { iBook } from '../models/iBook';
 import { iLoan } from '../models/iLoan';
-import { iStatus } from '../../readers/models/iStatus';
+import { iExpired } from '../models/iExpired';
+import { iStatus } from '../models/iStatus';
 
 @Injectable({
   providedIn: 'root',
@@ -25,10 +26,14 @@ export class LoansService {
     );
   }
 
-  /* setStatus(status: iStatus): Observable<any> {
+  getLoansExpired(): Observable<iExpired[]> {
+    return this._http.get<iExpired[]>(`http://localhost:3000/loans/expired`);
+  }
+
+  setStatus(status: iStatus): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._http.put(`${this.url_base}status`, status, { headers });
-  } */
+  } 
 
   deleteLoan(id_reader: number): Observable<any> {
     return this._http.delete(`http://localhost:3000/loans/delete/${id_reader}`);
