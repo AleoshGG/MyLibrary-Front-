@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReadersService } from '../service/readers.service';
 import { iReader } from '../models/iReader';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'searcher',
@@ -26,6 +27,14 @@ export class SearcherComponent {
   search(): void {
     this.flagDefault = false;
     const name = this.readerName;
+    if(this.readerName === ' ' ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Existen campos vacíos!',
+      });
+      return;
+    }
 
     this._service.searchReader(name).subscribe({
       next: (response) => {

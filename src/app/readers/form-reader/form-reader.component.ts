@@ -44,6 +44,11 @@ export class FormReaderComponent {
 
     this._service.addReader(reader).subscribe({
       next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Se registró al lector!',
+        });
         console.log(response);
       },
       error: (error) => {
