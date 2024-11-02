@@ -1,0 +1,15 @@
+<div class="form-content">
+  <h1>Registro</h1>
+  <hr/>
+  <form>
+    <label for="first_name" class="label">Nombres:</label> 
+    <input [(ngModel)]="reader.first_name" type="text" name="first_name" class="input" placeholder="Nombre del lector" /> 
+    <label for="last_name" class="label">Apellidos:</label> 
+    <input [(ngModel)]="reader.last_name" type="text" name="last_name" class="input" placeholder="Apellidos del lector"/> 
+    <label for="email" class="label">Correo Electrónico</label> 
+    <input [(ngModel)]="reader.email" type="email" name="email" class="input" placeholder="email@example.com"/> 
+    <label for="phone_number" class="label">Número telefónico</label> 
+    <input [(ngModel)]="reader.phone_number" type="tel" name="phone_number" class="input" placeholder="961 788 15 25"/>  <br>
+    <input type="button" value="Guardar" (click)="saveReader()" class="btn"/>
+  </form>
+</div>

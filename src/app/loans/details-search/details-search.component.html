@@ -1,0 +1,21 @@
+<div *ngIf="work == 'show'; else actions">
+    <h4>
+        Nombre:
+        <p>{{ reader.first_name }} {{ reader.last_name }}</p>
+      </h4>
+      <h4>
+        Estado de la cuenta:
+        <p *ngIf="reader.account_status == 'active'; else suspended">
+          Activa <img src="active.png" alt="" />
+        </p>
+  
+        <ng-template #suspended>
+          <p>Suspendida <img src="suspended.png" alt="" /></p>
+        </ng-template>
+      </h4>
+</div>
+
+<ng-template #actions>
+    <p>Titulo: {{book.title}}</p>
+    <button (click)="add()">Agregar</button>
+</ng-template>

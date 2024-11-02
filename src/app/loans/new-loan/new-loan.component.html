@@ -1,0 +1,15 @@
+<div class="content">
+  <h1>Registrar un préstamo</h1>
+  <searches
+    (searchData)="getDataReader($event)"
+    (addBooks)="addBooks($event)"
+  ></searches>
+  <br>
+  <label>Ingresa la fecha de entrega:</label> <br>
+  <input type="date" [(ngModel)]="delivery_date" /> <br>
+
+  <div class="btn">
+    <button (click)="addLoan()">Generar préstamo</button>
+  </div>
+  
+</div>

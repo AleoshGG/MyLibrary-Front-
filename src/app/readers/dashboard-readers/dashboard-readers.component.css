@@ -1,0 +1,12 @@
+.content {
+  padding: 3%;
+  display: flex;
+  width: 94%;
+  gap: 2%;
+  height: 100vh;
+}
+
+.content-left {
+  width: 45%;
+  height: auto;
+}
