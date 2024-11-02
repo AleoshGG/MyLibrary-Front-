@@ -1,0 +1,29 @@
+<div class="details-content">
+  <div class="details-text">
+    <h4>
+      Nombre:
+      <p>{{ reader.first_name }} {{ reader.last_name }}</p>
+    </h4>
+    <h4>
+      Estado de la cuenta:
+      <p *ngIf="reader.account_status == 'active'; else suspended">
+        Activa <img src="active.png" alt="" />
+      </p>
+
+      <ng-template #suspended>
+        <p>Suspendida <img src="suspended.png" alt="" /></p>
+      </ng-template>
+    </h4>
+
+    <h4>Libros aún no devueltos:</h4>
+    <ul *ngFor="let book of books">
+      <li>{{ book.title }}</li>
+    </ul>
+  </div>
+  Elije qué pasará con la cuenta:
+  <div class="btn-actions">
+    <button (click)="setStatusActive()" id="active">Activar</button>
+    <button (click)="setStatusSuspended()" id="suspended">Suspender</button>
+    <button (click)="deleteAccount()" id="delete">Eliminar</button>
+  </div>
+</div>

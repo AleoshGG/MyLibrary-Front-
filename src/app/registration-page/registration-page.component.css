@@ -9,18 +9,6 @@
   justify-content: space-between;
 }
 
-.info-msg {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 15px;
-  height: 40%;
-}
-
-.info-msg > img {
-  height: 30px;
-}
-
 .resourse-content {
   width: 100%;
   height: auto;

@@ -1,0 +1,51 @@
+.content {
+  padding: 4% 6%;
+  border-radius: 24px;
+  box-shadow: 0px 0px 10px 2px #0000005b;
+  height: auto;
+}
+
+h1 {
+  margin-top: 0;
+  color: #376996;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  color: #fff;
+  background: #2a2a72;
+  padding: 10px 0;
+}
+
+td {
+  padding: 7px;
+  background: #ddfffc;
+}
+
+button {
+  width: 80px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  margin-left: 20px;
+}
+
+#suspended {
+  background: #ff4800;
+  color: #fff;
+}
+
+#delete {
+  background: #ec3131;
+  color: #fff;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+  cursor: pointer;
+}

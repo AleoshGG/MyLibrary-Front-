@@ -1,6 +1,7 @@
 .title-contend {
   width: 97%;
   padding: 3% 0 0 3%;
+  display: flex;
 }
 
 .title-box {
@@ -24,4 +25,27 @@
   transform: scale(0.99);
   transition: 0.1s;
   cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  margin-left: 3%;
+  gap: 24%;
+}
+
+h3 {
+  text-decoration: underline;
+  color: #376996;
+}
+
+h3:hover {
+  cursor: pointer;
+  color: #284b69;
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+h3:active {
+  transition: 0.2s;
+  color: #000;
 }

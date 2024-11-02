@@ -1,8 +1,6 @@
 <div class="buttons-content">
-  <div class="msg">
-    <img src="info.png" alt="info" />
-    <p>No olvides guardar los cambios</p>
-  </div>
+  <msg-info  [msg] = "'No olvides guardar los cambios'"/>
+  
   <div class="btn-ct">
     <button class="btn-true" (click)="onSave()">Guardar</button>
     <button class="btn-false" (click)="cancel()">Cancelar</button>

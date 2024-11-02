@@ -1,0 +1,51 @@
+h1 {
+  margin-top: 0;
+  color: #376996;
+}
+
+hr {
+  margin-top: -15px;
+  border: 1px #244b6d solid;
+}
+
+.form-content {
+  padding: 4% 6%;
+  border-radius: 24px;
+  box-shadow: 0px 0px 10px 2px #0000005b;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  padding: 10px 0 5px 0;
+}
+
+.input {
+  border: 1px #92b4a7 solid;
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.input:active {
+  border: 1px #376996 solid;
+}
+
+.btn {
+  border-radius: 15px;
+  border: none;
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: #ffa400;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(0.97);
+  transition: 0.5s;
+  cursor: pointer;
+  background: #ff7600;
+}

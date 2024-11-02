@@ -1,0 +1,27 @@
+<div class="content">
+  <h1>Libros no devueltos</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Libro</th>
+        <th>Nombre del lector</th>
+        <th>Contacto</th>
+        <th>Fecha de devolución</th>
+        <th>Acciones a la cuenta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of listExpiredLoans">
+        <td>{{ loan.Book.title }}</td>
+        <td>{{ loan.reader.first_name }} {{ loan.reader.last_name }}</td>
+        <td>{{ loan.reader.phone_number }} | {{ loan.reader.email }}</td>
+        <td>{{ loan.delivery_date }}</td>
+        <td>
+          <button (click)="suspendetAccount(loan.id_reader)" id="suspended">Suspender</button>
+          <button (click)="deleteAccount(loan.id_reader)" id="delete">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
