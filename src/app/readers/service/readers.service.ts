@@ -8,7 +8,7 @@ import { iStatus } from '../models/iStatus';
   providedIn: 'root',
 })
 export class ReadersService {
-  private url_base = 'http://localhost:3000/readers/';
+  private url_base = 'http://3.218.139.134:3000/readers/';
 
   constructor(private _http: HttpClient) {}
 

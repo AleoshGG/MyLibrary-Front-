@@ -11,7 +11,7 @@ import { iStatus } from '../models/iStatus';
   providedIn: 'root',
 })
 export class LoansService {
-  private url_base = 'http://localhost:3000/readers/';
+  private url_base = 'http://3.218.139.134:3000/readers/';
 
   constructor(private _http: HttpClient) {}
 
@@ -22,12 +22,12 @@ export class LoansService {
 
   searchBook(name: string): Observable<iBook> {
     return this._http.get<iBook>(
-      `http://localhost:3000/books/searchby/${name}`
+      `http://3.218.139.134:3000/books/searchby/${name}`
     );
   }
 
   getLoansExpired(): Observable<iExpired[]> {
-    return this._http.get<iExpired[]>(`http://localhost:3000/loans/expired`);
+    return this._http.get<iExpired[]>(`http://3.218.139.134:3000/loans/expired`);
   }
 
   setStatus(status: iStatus): Observable<any> {
@@ -36,7 +36,7 @@ export class LoansService {
   } 
 
   deleteLoan(id_reader: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/loans/delete/${id_reader}`);
+    return this._http.delete(`http://3.218.139.134:3000/loans/delete/${id_reader}`);
   }
 
   deleteAccount(id_reader: number): Observable<any> {
@@ -45,14 +45,14 @@ export class LoansService {
 
   setStatusLoan(newStatus: iStatus): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.put(`http://localhost:3000/loans/status`, newStatus, {
+    return this._http.put(`http://3.218.139.134:3000/loans/status`, newStatus, {
       headers,
     });
   }
 
   addNewLoan(loan: iLoan): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.post(`http://localhost:3000/loans/add`, loan, {
+    return this._http.post(`http://3.218.139.134:3000/loans/add`, loan, {
       headers,
     });
   }

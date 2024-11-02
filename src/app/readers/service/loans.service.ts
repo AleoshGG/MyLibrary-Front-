@@ -8,7 +8,7 @@ import { forkJoin, Observable, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class LoansService {
-  private url_base = 'http://localhost:3000/loans/';
+  private url_base = 'http://3.218.139.134:3000/loans/';
 
   constructor(private _http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class LoansService {
   }
 
   private getBookById(id_book: number): Observable<iBook> {
-    const url_books: string = 'http://localhost:3000/books/search/';
+    const url_books: string = 'http://3.218.139.134:3000/books/search/';
     return this._http.get<iBook>(`${url_books}${id_book}`);
   }
 }
