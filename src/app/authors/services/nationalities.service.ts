@@ -7,7 +7,7 @@ import { iNationality } from '../models/iNationality';
   providedIn: 'root',
 })
 export class NationalitiesService {
-  private url_base = 'http://localhost:3000/nationalities/';
+  private url_base = 'http://3.218.139.134:3000/nationalities/';
 
   constructor(private _http: HttpClient) {}
 

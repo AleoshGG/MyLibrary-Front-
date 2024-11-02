@@ -7,7 +7,7 @@ import { iWritings } from '../models/iWritings';
   providedIn: 'root',
 })
 export class NewWritingsService {
-  private url_base = 'http://localhost:3000/writings/add';
+  private url_base = 'http://3.218.139.134:3000/writings/add';
 
   constructor(private _http: HttpClient) {}
 

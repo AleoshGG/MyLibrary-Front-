@@ -8,7 +8,7 @@ import { iJoinBL } from '../models/iJoinBL';
   providedIn: 'root',
 })
 export class BooksService {
-  private url_base = 'http://localhost:3000/books/';
+  private url_base = 'http://3.218.139.134:3000/books/';
 
   constructor(private _http: HttpClient) {}
 

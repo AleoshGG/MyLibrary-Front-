@@ -7,7 +7,7 @@ import { iBook } from '../models/iBook';
   providedIn: 'root',
 })
 export class NewBookService {
-  private url_base = 'http://localhost:3000/books/add';
+  private url_base = 'http://3.218.139.134:3000/books/add';
 
   constructor(private _http: HttpClient) {}
 

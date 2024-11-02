@@ -10,7 +10,7 @@ import { iAuthor } from '../models/iAuthor';
   providedIn: 'root',
 })
 export class InfoService {
-  private url_base = 'http://localhost:3000/writings/authors/';
+  private url_base = 'http://3.218.139.134:3000/writings/authors/';
 
   constructor(private _http: HttpClient) {}
 
@@ -19,20 +19,20 @@ export class InfoService {
   }
 
   searchBook(id_book: number): Observable<iJoinBL[]> {
-    return this._http.get<iJoinBL[]>(`http://localhost:3000/books/search/${id_book}`);
+    return this._http.get<iJoinBL[]>(`http://3.218.139.134:3000/books/search/${id_book}`);
   }
 
   deleteBook(id_book: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/books/delete/${id_book}`);
+    return this._http.delete(`http://3.218.139.134:3000/books/delete/${id_book}`);
   }
 
   updateBook(id_book: number, book: iBook): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.put(`http://localhost:3000/books/update/${id_book}`, book, { headers });
+    return this._http.put(`http://3.218.139.134:3000/books/update/${id_book}`, book, { headers });
   }
 
   updateAuthor(id_author: number, author: iAuthor): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.put(`http://localhost:3000/authors/update/${id_author}`, author, { headers });
+    return this._http.put(`http://3.218.139.134:3000/authors/update/${id_author}`, author, { headers });
   }
 }

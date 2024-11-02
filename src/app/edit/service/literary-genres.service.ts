@@ -7,7 +7,7 @@ import { iLiteraryGenre } from '../../books/models/iLiteraryGenre';
   providedIn: 'root',
 })
 export class LiteraryGenresService {
-  private url_base = 'http://localhost:3000/genres/';
+  private url_base = 'http://3.218.139.134:3000/genres/';
 
   constructor(private _http: HttpClient) {}
 

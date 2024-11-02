@@ -7,7 +7,7 @@ import { iAuthor } from '../models/iAuthor';
   providedIn: 'root',
 })
 export class NewAuthorService {
-  private url_base = 'http://localhost:3000/authors/add';
+  private url_base = 'http://3.218.139.134:3000/authors/add';
 
   constructor(private _http: HttpClient) {}
 

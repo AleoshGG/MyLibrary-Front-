@@ -7,7 +7,7 @@ import { iJoinAN } from '../models/iJoinAN';
   providedIn: 'root',
 })
 export class AuthorsService {
-  private url_base = 'http://localhost:3000/authors/';
+  private url_base = 'http://3.218.139.134:3000/authors/';
 
   constructor(private _http: HttpClient) {}
 
